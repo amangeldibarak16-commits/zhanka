@@ -1,0 +1,468 @@
+
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Бозжыра — Білім әлемі</title>
+<style>
+:root{
+  --blue:#2563eb;--dark:#142344;--sky:#eaf5ff;
+  --yellow:#ffcc4d;--green:#21b573;--white:#fff;
+  --muted:#71809a;--line:#e8eef7;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,"Segoe UI",Arial,sans-serif;background:#f7faff;color:var(--dark)}
+button,a{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+.navbar{position:sticky;top:0;z-index:10;background:#ffffffed;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-inner{max-width:1120px;margin:auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px}
+.brand-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:15px;background:linear-gradient(145deg,#3c82ff,#1747c7);color:white;font-size:24px;box-shadow:0 6px 16px #2563eb35}
+.nav-links{display:flex;gap:25px;align-items:center;font-size:14px;font-weight:700;color:#62718a}
+.nav-links a:hover{color:var(--blue)}
+.pill{border:0;border-radius:14px;padding:12px 17px;background:var(--blue);color:white;font-weight:800;box-shadow:0 6px 16px #2563eb30}
+.hero{max-width:1120px;margin:auto;padding:64px 22px 52px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:36px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;border-radius:30px;background:#e5efff;color:#2255bc;font-weight:800;font-size:12px;padding:9px 13px;letter-spacing:.6px}
+h1{font-size:clamp(38px,5.5vw,66px);line-height:1.04;letter-spacing:-2.5px;margin:22px 0 18px;font-weight:950}
+h1 span{color:var(--blue)}
+.hero p{color:var(--muted);font-size:17px;line-height:1.8;max-width:500px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.primary,.secondary{border:0;border-radius:15px;padding:15px 20px;font-weight:850;transition:.2s}
+.primary{background:var(--blue);color:white;box-shadow:0 9px 20px #2563eb30}
+.secondary{background:white;color:var(--dark);border:1px solid var(--line)}
+.primary:hover,.secondary:hover,.pill:hover{transform:translateY(-2px)}
+.hero-art{min-height:350px;position:relative;display:grid;place-items:center;border-radius:38px;background:linear-gradient(150deg,#d8ecff,#eef6ff 60%,#fff0c7);overflow:hidden}
+.sun{position:absolute;top:35px;right:48px;width:75px;height:75px;border-radius:50%;background:#ffcf58;box-shadow:0 0 0 15px #ffcf582b}
+.cloud{position:absolute;font-size:46px;opacity:.8}
+.cloud.one{left:26px;top:45px}.cloud.two{right:35px;top:135px;font-size:32px}
+.land{position:absolute;bottom:-70px;border-radius:50% 50% 0 0;width:120%;height:190px;background:#8bd9a5;transform:rotate(-7deg)}
+.land.back{bottom:-32px;left:-40px;height:130px;background:#65c98b;transform:rotate(10deg)}
+.road{position:absolute;bottom:-35px;width:150px;height:230px;background:#536680;transform:rotate(25deg);border-radius:45px}
+.road:after{content:"";position:absolute;left:69px;top:0;height:100%;border-left:5px dashed #fff6}
+.school{position:relative;z-index:2;font-size:118px;filter:drop-shadow(0 12px 8px #1c386522);margin-top:-28px}
+.floating{position:absolute;z-index:3;background:#fff;border:1px solid #ffffffa8;border-radius:18px;padding:13px 16px;box-shadow:0 12px 30px #214c8420;font-weight:800;font-size:13px;animation:float 3s ease-in-out infinite}
+.floating.a{left:18px;bottom:40px}.floating.b{right:17px;bottom:72px;animation-delay:1s}
+@keyframes float{50%{transform:translateY(-8px)}}
+.stats{max-width:1060px;margin:0 auto 40px;padding:0 22px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;display:flex;align-items:center;gap:13px}
+.stat-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:#edf4ff;font-size:24px}
+.stat strong{display:block;font-size:23px}.stat small{color:var(--muted);font-weight:650}
+.section{max-width:1120px;margin:auto;padding:55px 22px 75px}
+.section-head{text-align:center;margin-bottom:32px}
+.section-head .eyebrow{margin-bottom:10px}
+h2{font-size:clamp(28px,4vw,42px);letter-spacing:-1.2px;margin:12px 0}
+.section-head p{color:var(--muted);line-height:1.7;margin:0 auto;max-width:560px}
+.levels{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}
+.level-card{background:white;border:1px solid var(--line);border-radius:26px;padding:21px;transition:.25s;position:relative;overflow:hidden}
+.level-card:hover{transform:translateY(-6px);box-shadow:0 18px 35px #214c8410}
+.level-top{height:145px;border-radius:19px;display:grid;place-items:center;font-size:66px;position:relative;overflow:hidden}
+.level-top:after{content:"";position:absolute;width:125px;height:125px;border:20px solid #ffffff45;border-radius:50%;right:-20px;bottom:-65px}
+.t1{background:#e1efff}.t2{background:#fff0cb}.t3{background:#dff8e9}
+.level-card h3{font-size:21px;margin:20px 0 8px}
+.level-card p{color:var(--muted);line-height:1.65;font-size:14px;min-height:46px}
+.level-meta{display:flex;justify-content:space-between;color:#71809a;font-size:12px;font-weight:800;margin:18px 0}
+.level-meta span:first-child{color:#d99500}
+.level-button{width:100%;border:0;border-radius:13px;background:#edf4ff;color:#2054be;padding:13px;font-weight:850;transition:.2s}
+.level-button:hover{background:var(--blue);color:white}
+.level-completed .level-button{background:#e3f8ec;color:#13854b}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:25px;align-items:stretch}
+.about-card{padding:30px;border-radius:25px;background:#eaf3ff}
+.about-card h3{font-size:25px;margin:0 0 12px}
+.about-card p{line-height:1.8;color:#62718a}
+.feature{display:flex;gap:13px;align-items:flex-start;margin:19px 0}
+.feature-icon{width:43px;height:43px;border-radius:14px;background:white;display:grid;place-items:center;font-size:21px;flex-shrink:0}
+.feature b{display:block;margin:3px 0 5px}.feature small{color:var(--muted);line-height:1.6}
+.about-note{border-radius:25px;background:var(--dark);color:white;padding:30px;display:flex;flex-direction:column;justify-content:center}
+.about-note .big-emoji{font-size:54px}
+.about-note h3{font-size:27px;margin:15px 0 5px}
+.about-note p{color:#c0cbe0;line-height:1.8}
+footer{padding:28px 22px;text-align:center;background:white;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+.modal{position:fixed;inset:0;background:#101e3bcc;backdrop-filter:blur(7px);z-index:30;display:none;align-items:center;justify-content:center;padding:16px;overflow-y:auto}
+.modal.open{display:flex}
+.modal-box{background:white;border-radius:27px;width:min(100%,560px);padding:25px;box-shadow:0 25px 90px #06132d55;animation:pop .22s ease;max-height:95vh;overflow-y:auto}
+@keyframes pop{from{opacity:0;transform:translateY(12px) scale(.98)}to{opacity:1;transform:none}}
+.modal-header{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.modal-kicker{color:var(--blue);font-size:11px;font-weight:900;letter-spacing:1px}
+.close{width:39px;height:39px;border:0;border-radius:12px;background:#f0f4fa;font-size:23px;color:#53627a}
+.modal-progress{height:8px;background:#edf1f7;border-radius:20px;overflow:hidden;margin:17px 0 22px}
+.modal-progress-fill{height:100%;width:0;background:linear-gradient(90deg,#4387ff,#1b55db);border-radius:20px;transition:width .3s}
+.modal-art{width:94px;height:94px;display:grid;place-items:center;border-radius:27px;background:#eaf3ff;font-size:48px;margin:0 auto 17px}
+.modal-question{text-align:center;font-size:23px;line-height:1.4;margin:0 0 22px}
+.modal-answers{display:grid;gap:10px}
+.modal-answer{display:flex;align-items:center;gap:12px;text-align:left;width:100%;padding:14px;border-radius:15px;background:white;border:2px solid #e7edf6;color:var(--dark);font-weight:750;line-height:1.4;transition:.15s}
+.modal-answer:hover:not(:disabled){border-color:#7ca8ff;background:#f5f8ff}
+.answer-emoji{font-size:23px;flex-shrink:0}
+.answer-letter{margin-left:auto;color:#8996aa;font-size:12px;font-weight:900}
+.modal-answer.correct{border-color:#25b878;background:#eafaf1}
+.modal-answer.wrong{border-color:#f07878;background:#fff0f0}
+.modal-answer:disabled{cursor:default}
+.modal-feedback{text-align:center;min-height:27px;margin:14px 0 5px;font-size:14px;line-height:1.6;font-weight:750}
+.modal-feedback.good{color:#15965c}.modal-feedback.bad{color:#d24d4d}
+.modal-next{width:100%;border:0;border-radius:15px;padding:15px;background:var(--blue);color:white;font-weight:850;margin-top:8px}
+.modal-next:disabled{background:#cbd5e5;cursor:not-allowed}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#152544;color:white;padding:13px 20px;border-radius:15px;z-index:50;box-shadow:0 12px 35px #0d1b3540;font-size:14px;font-weight:800;transition:.25s;text-align:center;width:max-content;max-width:90vw}
+.toast.visible{opacity:1;transform:translate(-50%,0)}
+body.modal-open{overflow:hidden}
+@media(max-width:760px){
+ .nav-links{gap:12px;font-size:12px}.nav-links a:nth-child(3){display:none}
+ .hero{grid-template-columns:1fr;padding-top:42px;gap:28px}
+ .hero-art{min-height:300px}.stats{grid-template-columns:1fr;gap:9px}
+ .stat{padding:14px}.levels{grid-template-columns:1fr;max-width:470px;margin:auto}
+ .level-top{height:125px}.about{grid-template-columns:1fr}
+ h1{letter-spacing:-1.7px}.section{padding-top:43px;padding-bottom:50px}
+}
+@media(max-width:420px){
+ .nav-inner{padding:11px 14px}.brand{font-size:14px}.brand-icon{width:37px;height:37px}
+ .nav-links{gap:10px}.nav-links a:nth-child(2){display:none}
+ .nav-links .pill{padding:10px 12px}
+ .hero{padding-left:17px;padding-right:17px}
+ .modal-box{padding:18px}.modal-question{font-size:20px}
+}
+</style>
+</head>
+<body>
+<header class="navbar">
+  <div class="nav-inner">
+    <a class="brand" href="#home"><span class="brand-icon">🚦</span><span>БОЗЖЫРА<br><small style="font-size:10px;color:#71809a;letter-spacing:1.2px">БІЛІМ ӘЛЕМІ</small></span></a>
+    <nav class="nav-links">
+      <a href="#home">Басты бет</a>
+      <a href="#levels">Деңгейлер</a>
+      <a href="#about">Біз туралы</a>
+      <button class="pill" id="navPlay">Ойнау ✨</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div>
+    <span class="eyebrow">✨ ҮЙРЕНУ · ОЙНАУ · ДАМУ</span>
+    <h1>Білім ал,<br><span>қауіпсіз</span> жүр!</h1>
+    <p>Жол ережелерін қызықты ойындар арқылы үйрен. Әр дұрыс жауап сені қауіпсіздік қаһарманы болуға жақындатады!</p>
+    <div class="hero-actions">
+      <button class="primary" id="heroPlay">Оқуды бастау →</button>
+      <a class="secondary" href="#levels" style="display:inline-flex;align-items:center">Деңгейлерді көру ↓</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-label="Жол қауіпсіздігі иллюстрациясы">
+    <div class="sun"></div><span class="cloud one">☁️</span><span class="cloud two">☁️</span>
+    <div class="land back"></div><div class="land"></div><div class="road"></div>
+    <div class="school">🏫</div>
+    <div class="floating a">⭐ <span id="heroStars">0</span> жұлдыз</div>
+    <div class="floating b">🎯 Қауіпсіздік әлемі</div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stat"><div class="stat-icon">📚</div><div><strong>3</strong><small>Оқу деңгейі</small></div></div>
+  <div class="stat"><div class="stat-icon">❓</div><div><strong>15</strong><small>Қызықты сұрақ</small></div></div>
+  <div class="stat"><div class="stat-icon">⭐</div><div><strong id="totalStars">0</strong><small>Жиналған жұлдыз</small></div></div>
+</div>
+
+<section class="section" id="levels">
+  <div class="section-head">
+    <span class="eyebrow">🎮 ОЙЫН АЛАҢЫ</span>
+    <h2>Өз деңгейіңді таңда!</h2>
+    <p>Әр деңгейде бес сұрақ бар. Дұрыс жауап беріп, жаңа жетістіктерге қол жеткіз!</p>
+  </div>
+  <div class="levels">
+    <article class="level-card" data-card="0">
+      <div class="level-top t1">🚦</div>
+      <h3>Бағдаршам әлемі</h3>
+      <p>Бағдаршам түстері мен көшеден дұрыс өту жолдарын үйрен.</p>
+      <div class="level-meta"><span>★ <b data-score="0">0</b> / 5</span><span>5 сұрақ</span></div>
+      <button class="level-button" data-game="0">Ойнау →</button>
+    </article>
+    <article class="level-card" data-card="1">
+      <div class="level-top t2">🛑</div>
+      <h3>Белгілер құпиясы</h3>
+      <p>Жол белгілерінің мағынасын тауып, өз біліміңді тексер.</p>
+      <div class="level-meta"><span>★ <b data-score="1">0</b> / 5</span><span>5 сұрақ</span></div>
+      <button class="level-button" data-game="1">Ойнау →</button>
+    </article>
+    <article class="level-card" data-card="2">
+      <div class="level-top t3">🦸</div>
+      <h3>Қауіпсіздік қаһарманы</h3>
+      <p>Күнделікті жағдайларда дұрыс шешім қабылдауды үйрен.</p>
+      <div class="level-meta"><span>★ <b data-score="2">0</b> / 5</span><span>5 сұрақ</span></div>
+      <button class="level-button" data-game="2">Ойнау →</button>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="section-head">
+    <span class="eyebrow">💙 БІЗ ТУРАЛЫ</span>
+    <h2>Үйрену қызықты болсын!</h2>
+    <p>Ойын арқылы алған білім күнделікті өмірде дұрыс шешім қабылдауға көмектеседі.</p>
+  </div>
+  <div class="about">
+    <div class="about-card">
+      <h3>Біздің мақсатымыз 🎯</h3>
+      <p>Балаларға жол қауіпсіздігі ережелерін қарапайым, түсінікті және қызықты түрде үйрету.</p>
+      <div class="feature"><span class="feature-icon">🧠</span><div><b>Оңай үйрену</b><small>Қысқа сұрақтар мен түсінікті жауаптар.</small></div></div>
+      <div class="feature"><span class="feature-icon">⭐</span><div><b>Жетістіктер</b><small>Әр дұрыс жауап үшін жұлдыз жина.</small></div></div>
+      <div class="feature"><span class="feature-icon">🚀</span><div><b>Даму</b><small>Қайталап ойнап, нәтижеңді жақсарт.</small></div></div>
+    </div>
+    <div class="about-note">
+      <div class="big-emoji">🌟</div>
+      <h3>Сен де қаһарман бол!</h3>
+      <p>Жол ережесін білу — өзіңді және айналаңдағы адамдарды қорғаудың маңызды қадамы.</p>
+      <button class="primary" id="aboutPlay" style="align-self:flex-start;margin-top:12px;background:#ffcc4d;color:#142344;box-shadow:none">Қазір бастау →</button>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>© 2026 БОЗЖЫРА · БІЛІМ ӘЛЕМІ · Білім — болашаққа жол! 💙</footer>
+
+<div class="modal" id="gameModal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalQuestion">
+    <div class="modal-header"><span class="modal-kicker" id="modalKicker">01 / БАҒДАРШАМ ӘЛЕМІ</span><button class="close" id="closeModal" aria-label="Жабу">×</button></div>
+    <div class="modal-progress"><div class="modal-progress-fill" id="modalProgressFill"></div></div>
+    <div class="modal-art" id="modalArt">🚦</div>
+    <h2 class="modal-question" id="modalQuestion">Сұрақ</h2>
+    <div class="modal-answers" id="modalAnswers"></div>
+    <div class="modal-feedback" id="modalFeedback" aria-live="polite"></div>
+    <button class="modal-next" id="modalNext" disabled>Келесі сұрақ →</button>
+  </div>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+"use strict";
+
+const games = [
+{
+ title:"Бағдаршам әлемі",
+ questions:[
+  ["🚦","Бағдаршамның қызыл түсі нені білдіреді?",[["🛑","Тоқта!",1],["🚶","Жүре бер!",0],["🚗","Жылдам жүр!",0]]],
+  ["🟡","Бағдаршамның сары түсі жанғанда не істеу керек?",[["⚠️","Назар аударып, тоқтауға дайындалу",1],["🏃","Жүгіріп өту",0],["🎉","Ойнай беру",0]]],
+  ["🟢","Жасыл сигнал жанғанда не істеу керек?",[["👀","Қауіпсіздікті тексеріп, өту",1],["🙈","Қарамай өту",0],["📱","Телефонға қарау",0]]],
+  ["🚸","Жолдан қай жерден өткен дұрыс?",[["🚶","Жаяу жүргіншілер өткелінен",1],["🚙","Көліктердің арасынан",0],["🏃","Кез келген жерден жүгіріп",0]]],
+  ["👀","Жолдан өтпес бұрын неге назар аудару керек?",[["🚦","Бағдаршамға және көліктерге",1],["🎧","Музыкаға ғана",0],["📱","Телефонға",0]]]
+ ]
+},
+{
+ title:"Белгілер құпиясы",
+ questions:[
+  ["🚸","Жаяу жүргіншілер өткелін қандай белгі көрсетеді?",[["🚶","Жаяу жүргіншілер өткелі",1],["⛽","Жанармай бекеті",0],["🅿️","Тұрақ орны",0]]],
+  ["🛑","STOP белгісін көргенде не істеу керек?",[["✋","Толық тоқтап, жағдайды тексеру",1],["➡️","Жылдам өту",0],["🏃","Жүгіріп кету",0]]],
+  ["🚲","Велосипед жолын қандай белгі көрсетеді?",[["🚲","Велосипед белгісі",1],["🚌","Автобус белгісі",0],["🏥","Аурухана белгісі",0]]],
+  ["🚫","Тыйым салатын жол белгісі нені білдіреді?",[["⛔","Белгілі бір әрекетке тыйым салынған",1],["✅","Барлық әрекетке рұқсат",0],["🎯","Ойын басталды",0]]],
+  ["🚏","Автобус аялдамасын қалай тануға болады?",[["🚌","Аялдама белгісінен",1],["✈️","Ұшақ белгісінен",0],["🚲","Велосипед белгісінен",0]]]
+ ]
+},
+{
+ title:"Қауіпсіздік қаһарманы",
+ questions:[
+  ["⚽","Доп жолға домалап кетті. Не істейсің?",[["✋","Тоқтап, ересек адамнан көмек сұраймын",1],["🏃","Доптың артынан жүгіремін",0],["🚗","Көліктер арасынан өтемін",0]]],
+  ["📱","Жолға жақындағанда телефонмен не істеген дұрыс?",[["👀","Телефонды қойып, жолға назар аудару",1],["📱","Хабарлама оқи беру",0],["🎧","Қатты музыка тыңдау",0]]],
+  ["🌧️","Жаңбырлы күні көшеден қалай өткен дұрыс?",[["☂️","Асықпай, жолды мұқият тексеру",1],["🏃","Көлікке қарамай жүгіру",0],["🙈","Қарамай өту",0]]],
+  ["🚌","Автобустан түскен соң не істеу керек?",[["🚸","Қауіпсіз жерге барып, өткелді пайдалану",1],["🏃","Автобустың алдынан жүгіріп өту",0],["🚗","Көліктер арасынан өту",0]]],
+  ["🚘","Өткелге көлік жақындап келеді. Не істейсің?",[["✋","Тоқтап, көліктің тоқтағанына көз жеткізу",1],["🏃","Көліктің алдынан жүгіріп өту",0],["📱","Телефонға қарау",0]]]
+ ]
+}
+];
+
+const $ = id => document.getElementById(id);
+const modal = $("gameModal");
+const art = $("modalArt");
+const question = $("modalQuestion");
+const answers = $("modalAnswers");
+const feedback = $("modalFeedback");
+const next = $("modalNext");
+const progress = $("modalProgressFill");
+const kicker = $("modalKicker");
+const close = $("closeModal");
+const toast = $("toast");
+
+let activeGame = 0;
+let questionIndex = 0;
+let score = 0;
+let answered = false;
+let finished = false;
+let bestScores = [0,0,0];
+let completed = new Set();
+let toastTimer;
+
+function showToast(message){
+ toast.textContent = message;
+ toast.classList.add("visible");
+ clearTimeout(toastTimer);
+ toastTimer = setTimeout(()=>toast.classList.remove("visible"),2400);
+}
+
+function updateStats(){
+ const total = bestScores.reduce((sum,n)=>sum+n,0);
+ $("totalStars").textContent = total;
+ $("heroStars").textContent = total;
+
+ document.querySelectorAll("[data-score]").forEach(el=>{
+  const i = Number(el.dataset.score);
+  el.textContent = bestScores[i];
+ });
+ document.querySelectorAll(".level-card").forEach((card,i)=>{
+  card.classList.toggle("level-completed",completed.has(i));
+  const btn = card.querySelector(".level-button");
+  btn.textContent = completed.has(i) ? "Қайта ойнау ↻" : "Ойнау →";
+ });
+}
+
+function openGame(index){
+ if(!Number.isInteger(index)||!games[index])return;
+ activeGame=index;
+ questionIndex=0;
+ score=0;
+ answered=false;
+ finished=false;
+ modal.classList.add("open");
+ modal.setAttribute("aria-hidden","false");
+ document.body.classList.add("modal-open");
+ renderQuestion();
+}
+
+function closeGame(){
+ modal.classList.remove("open");
+ modal.setAttribute("aria-hidden","true");
+ document.body.classList.remove("modal-open");
+}
+
+function renderQuestion(){
+ const game=games[activeGame];
+ const q=game.questions[questionIndex];
+ answered=false;
+ finished=false;
+ kicker.textContent=`0${activeGame+1} / ${game.title.toLocaleUpperCase("kk-KZ")}`;
+ art.textContent=q[0];
+ question.textContent=q[1];
+ feedback.textContent="";
+ feedback.className="modal-feedback";
+ next.disabled=true;
+ next.textContent=questionIndex===game.questions.length-1?"Нәтижені көру ★":"Келесі сұрақ →";
+ progress.style.width=`${questionIndex/game.questions.length*100}%`;
+ answers.replaceChildren();
+
+ const shuffled=[...q[2]].sort(()=>Math.random()-.5);
+ shuffled.forEach((item,i)=>{
+  const btn=document.createElement("button");
+  btn.type="button";
+  btn.className="modal-answer";
+  const emoji=document.createElement("span");
+  emoji.className="answer-emoji";
+  emoji.textContent=item[0];
+  const label=document.createElement("span");
+  label.textContent=item[1];
+  const letter=document.createElement("span");
+  letter.className="answer-letter";
+  letter.textContent=String.fromCharCode(65+i);
+  btn.append(emoji,label,letter);
+  btn.addEventListener("click",()=>chooseAnswer(btn,item[2]===1));
+  answers.appendChild(btn);
+ });
+}
+
+function chooseAnswer(selected,correct){
+ if(answered||finished)return;
+ answered=true;
+ const buttons=[...answers.querySelectorAll("button")];
+ buttons.forEach(btn=>btn.disabled=true);
+
+ if(correct){
+  score++;
+  selected.classList.add("correct");
+  feedback.textContent="✨ Дұрыс! Жарайсың!";
+  feedback.classList.add("good");
+ }else{
+  selected.classList.add("wrong");
+  const right=games[activeGame].questions[questionIndex][2].find(a=>a[2]===1);
+  const rightButton=buttons.find(btn=>
+   btn.querySelector(".answer-emoji").textContent===right[0] &&
+   btn.children[1].textContent===right[1]
+  );
+  if(rightButton)rightButton.classList.add("correct");
+  feedback.textContent="💡 Қайта ойланып көр! Жасыл түс дұрыс жауапты көрсетеді.";
+  feedback.classList.add("bad");
+ }
+ progress.style.width=`${(questionIndex+1)/games[activeGame].questions.length*100}%`;
+ next.disabled=false;
+}
+
+function nextQuestion(){
+ if(finished){
+  closeGame();
+  $("levels").scrollIntoView({behavior:"smooth"});
+  return;
+ }
+ if(!answered)return;
+ if(questionIndex<games[activeGame].questions.length-1){
+  questionIndex++;
+  renderQuestion();
+ }else{
+  finishGame();
+ }
+}
+
+function finishGame(){
+ if(finished)return;
+ finished=true;
+ const firstTime=!completed.has(activeGame);
+ completed.add(activeGame);
+ bestScores[activeGame]=Math.max(bestScores[activeGame],score);
+ updateStats();
+
+ progress.style.width="100%";
+ kicker.textContent="СЕНІҢ НӘТИЖЕҢ";
+ art.textContent=score===5?"🏆":score>=3?"🌟":"🌱";
+ question.textContent=score===5?"Керемет нәтиже!":score>=3?"Жарайсың! Жақсы жұмыс!":"Жақсы бастама!";
+ answers.replaceChildren();
+
+ const result=document.createElement("div");
+ result.style.cssText="text-align:center;padding:18px 0;font-size:19px;font-weight:850;color:#e0a000";
+ result.textContent="★".repeat(score)+"☆".repeat(5-score);
+ const detail=document.createElement("p");
+ detail.style.cssText="text-align:center;color:#71809a;margin:0 0 10px";
+ detail.textContent=`${score} / 5 дұрыс жауап`;
+ answers.append(result,detail);
+
+ feedback.className="modal-feedback good";
+ feedback.textContent=score===5?"🎉 Барлық сұраққа дұрыс жауап бердің!":"💛 Үйренуді жалғастыр! Әр талпыныс маңызды.";
+ next.disabled=false;
+ next.textContent="Басқа деңгейді таңдау";
+ showToast(firstTime?"✨ Деңгей аяқталды!":"⭐ Нәтиже сақталды!");
+}
+
+// Барлық батырмаларға әрекет беру.
+document.querySelectorAll("[data-game]").forEach(btn=>{
+ btn.addEventListener("click",()=>openGame(Number(btn.dataset.game)));
+});
+$("heroPlay").addEventListener("click",()=> $("levels").scrollIntoView({behavior:"smooth"}));
+$("navPlay").addEventListener("click",()=> $("levels").scrollIntoView({behavior:"smooth"}));
+$("aboutPlay").addEventListener("click",()=> $("levels").scrollIntoView({behavior:"smooth"}));
+next.addEventListener("click",nextQuestion);
+close.addEventListener("click",closeGame);
+
+modal.addEventListener("click",e=>{
+ if(e.target===modal)closeGame();
+});
+document.addEventListener("keydown",e=>{
+ if(e.key==="Escape"&&modal.classList.contains("open"))closeGame();
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+ link.addEventListener("click",e=>{
+  const target=$(link.getAttribute("href").slice(1));
+  if(target){
+   e.preventDefault();
+   target.scrollIntoView({behavior:"smooth"});
+  }
+ });
+});
+
+updateStats();
+</script>
+</body>
+</html>
